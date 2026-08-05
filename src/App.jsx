@@ -5,7 +5,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import InitiativesPage from './pages/InitiativesPage';
-import EventsPage from './pages/EventsPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/initiatives" element={<InitiativesPage />} />
-        <Route path="/events" element={<EventsPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
       </Routes>
       <Footer />
     </Router>
