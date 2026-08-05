@@ -17,21 +17,23 @@ const Navbar = () => {
     <nav className="navbar" id="navbar">
       <div className="container nav-container">
         
-        {/* Left: Logo */}
+        {/* Left: Logo & Title */}
         <div className="nav-brand">
-          <Link to="/" onClick={closeMenu}>
+          <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
             <img 
               src="https://upload.wikimedia.org/wikipedia/en/1/1c/IIT_Kharagpur_Logo.svg" 
               alt="IIT Kharagpur Logo" 
               className="kgp-logo"
             />
+            <span className="brand-title" style={{ fontWeight: '600', fontSize: '1.1rem', color: '#1a237e', lineHeight: '1.2' }}>
+              Dean Student Wellbeing
+            </span>
           </Link>
         </div>
 
         {/* Center: Links */}
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <li><NavLink to="/" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Welfare Portals</NavLink></li>
-          <li><NavLink to="/resources" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Resources</NavLink></li>
           <li><NavLink to="/events" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Events</NavLink></li>
           <li><NavLink to="/initiatives" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Support Services</NavLink></li>
           <li><NavLink to="/about" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>About Us</NavLink></li>

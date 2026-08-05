@@ -4,8 +4,8 @@ import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
+import EventsPage from './pages/EventsPage';
 import InitiativesPage from './pages/InitiativesPage';
-import ResourcesPage from './pages/ResourcesPage';
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/events" element={<EventsPage />} />
         <Route path="/initiatives" element={<InitiativesPage />} />
-        <Route path="/resources" element={<ResourcesPage />} />
       </Routes>
       <Footer />
     </Router>

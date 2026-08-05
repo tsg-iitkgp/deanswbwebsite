@@ -7,9 +7,16 @@ const Footer = () => {
       <div className="container footer-content-bsw">
         <div className="footer-col">
           <div className="footer-brand">
-            <h4 style={{fontSize: '1.5rem', marginBottom: '10px'}}>STUDENT WELFARE BOARD</h4>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
+              <img 
+                src="/logo.png" 
+                alt="SWC Logo" 
+                style={{ height: '50px', width: 'auto', flexShrink: 0 }} 
+              />
+              <h6 style={{ fontSize: '1rem', margin: 0 }}>STUDENTS' WELFARE COMMITTEE</h6>
+            </div>
             <p>
-              SWB is primarily a student body consisting of dedicated representatives and faculty members, working together to foster a supportive ecosystem at IIT Kharagpur.
+              Students' Welfare Committee is primarily a student body consisting of dedicated representatives and faculty members, working together to foster a supportive ecosystem at IIT Kharagpur.
             </p>
           </div>
         </div>
@@ -48,12 +55,9 @@ const Footer = () => {
       
       {/* Watermark text */}
       <div className="footer-watermark">
-        STUDENTWELFARE
+        WELFARE
       </div>
       
-      <div className="footer-bottom-bsw">
-        <p>Made with &hearts; by SWB Tech Team</p>
-      </div>
     </footer>
   );
 };
