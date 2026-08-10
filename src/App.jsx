@@ -5,7 +5,8 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import EventsPage from './pages/EventsPage';
-import InitiativesPage from './pages/InitiativesPage';
+import SupportServicesPage from './pages/SupportServicesPage';
+import ResourcesPage from './pages/ResourcesPage';
 
 function App() {
   return (
@@ -14,9 +15,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
         <Route path="/events" element={<EventsPage />} />
-        <Route path="/initiatives" element={<InitiativesPage />} />
+        <Route path="/support" element={<SupportServicesPage />} />
+        <Route path="/resources" element={<ResourcesPage />} />
+        <Route path="/about" element={<AboutPage />} />
       </Routes>
       <Footer />
     </Router>

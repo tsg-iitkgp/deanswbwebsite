@@ -25,17 +25,24 @@ const Navbar = () => {
               alt="IIT Kharagpur Logo" 
               className="kgp-logo"
             />
-            <span className="brand-title" style={{ fontWeight: '600', fontSize: '1.1rem', color: '#1a237e', lineHeight: '1.2' }}>
-              Dean Student Wellbeing
+            <span className="brand-title" style={{ 
+              fontSize: '1.3rem', 
+              fontFamily: 'var(--font-heading)',
+              letterSpacing: '-0.02em',
+              lineHeight: '1.2'
+            }}>
+              <span style={{ fontWeight: '500', color: 'var(--text-header)' }}>Dean</span>{' '}
+              <span style={{ fontWeight: '500', color: 'var(--accent)' }}>Student Wellbeing</span>
             </span>
           </Link>
         </div>
 
         {/* Center: Links */}
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <li><NavLink to="/" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Welfare Portals</NavLink></li>
+          <li><NavLink to="/" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Home</NavLink></li>
           <li><NavLink to="/events" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Events</NavLink></li>
-          <li><NavLink to="/initiatives" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Support Services</NavLink></li>
+          <li><NavLink to="/support" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Support Services</NavLink></li>
+          <li><NavLink to="/resources" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Resources</NavLink></li>
           <li><NavLink to="/about" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>About Us</NavLink></li>
         </ul>
         

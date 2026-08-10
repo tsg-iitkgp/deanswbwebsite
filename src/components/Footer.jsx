@@ -9,14 +9,14 @@ const Footer = () => {
           <div className="footer-brand">
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '10px' }}>
               <img 
-                src="/logo.png" 
-                alt="SWC Logo" 
-                style={{ height: '50px', width: 'auto', flexShrink: 0 }} 
+                src="https://upload.wikimedia.org/wikipedia/en/1/1c/IIT_Kharagpur_Logo.svg" 
+                alt="IIT KGP Logo" 
+                style={{ height: '50px', width: 'auto', flexShrink: 0, objectFit: 'contain' }} 
               />
-              <h6 style={{ fontSize: '1rem', margin: 0 }}>STUDENTS' WELFARE COMMITTEE</h6>
+              <h6 style={{ fontSize: '1rem', margin: 0 }}>DEAN STUDENT WELLBEING</h6>
             </div>
             <p>
-              Students' Welfare Committee is primarily a student body consisting of dedicated representatives and faculty members, working together to foster a supportive ecosystem at IIT Kharagpur.
+              The Office of the Dean Student Wellbeing works to foster a supportive ecosystem at IIT Kharagpur by bringing together dedicated faculty and student representatives to ensure the holistic development of every student.
             </p>
           </div>
         </div>
@@ -46,8 +46,8 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Institute</h4>
           <ul className="contact-info">
-            <li><MapPin size={18} style={{flexShrink: 0}} /> <span>Office of the Dean (SA), IIT Kharagpur, West Bengal 721302</span></li>
-            <li><Mail size={18} style={{flexShrink: 0}} /> <span>deansa@hijli.iitkgp.ac.in</span></li>
+            <li><MapPin size={18} style={{flexShrink: 0}} /> <span>Office of the Dean (SWB), IIT Kharagpur, West Bengal 721302</span></li>
+            <li><Mail size={18} style={{flexShrink: 0}} /> <span>deanswb@adm.iitkgp.ac.in</span></li>
             <li><Phone size={18} style={{flexShrink: 0}} /> <span>+91-3222-282033</span></li>
           </ul>
         </div>
@@ -55,7 +55,16 @@ const Footer = () => {
       
       {/* Watermark text */}
       <div className="footer-watermark">
-        WELFARE
+        <div className="footer-watermark-track">
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+          <span>WELFARE</span>
+        </div>
       </div>
       
     </footer>
