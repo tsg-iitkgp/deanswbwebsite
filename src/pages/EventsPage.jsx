@@ -5,20 +5,20 @@ const EventsPage = () => {
   const pastEvents = [
     {
       id: 1,
-      title: "ShineKGP",
-      description: "A transformative week-long series of workshops and talks focused on breaking the stigma around mental health. We brought together students, faculty, and renowned psychologists to engage in open dialogues, share personal journeys, and build a stronger, more empathetic campus community.",
+      title: "SHINEKGP",
+      description: "Presented by the Students' Welfare Committee, Technology Students' Gymkhana, and the Office of the Dean of Students' Wellbeing, SHINEKGP is an exciting competition celebrating clean and positive living spaces. This initiative encourages IIT Kharagpur students to take pride in their rooms, recognizing that a tidy environment fosters clarity, calm, and personal care. Because our personal spaces are where we think, rest, and grow, keeping them organized directly enhances both productivity and peace of mind. The event promotes a healthier campus lifestyle by inspiring everyone to uplift their daily surroundings. To celebrate and encourage these efforts, the students with the absolute cleanest rooms will be specially awarded.",
       image: "https://images.unsplash.com/photo-1493836512294-502baa1986e2?auto=format&fit=crop&q=80&w=1200"
     },
     {
       id: 2,
       title: "Recharge Zone",
-      description: "An intensive, hands-on session where students learned practical techniques to manage academic stress. The masterclass covered mindfulness exercises, time management strategies, and cognitive reframing to help students navigate the high-pressure environment of mid-semester examinations.",
+      description: "To support students through the pressures of placement season, we introduced 24/7 Recharge Zones at the Nalanda Classroom Complex. These dedicated spaces are designed to help you relax, reset, and refocus. Students can drop in at any time to unwind with a variety of stress-relieving activities, including yoga, clay modelling, doodling, and darts. For a more active break, table tennis and other grounding exercises are also available to help clear your head. Whenever things feel a bit overwhelming, these calm and cozy zones offer the perfect sanctuary to step back, slow down, and recharge your mind.",
       image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1200"
     },
     {
       id: 3,
       title: "Wellbeing Day",
-      description: "A full day of outdoor activities designed to help students disconnect from their screens and reconnect with themselves. From guided morning meditation on the campus grounds to group therapy sessions and healthy nutritional workshops, this retreat served as a vital recharge before finals.",
+      description: "The Office of the Dean of Students' Wellbeing and the Students’ Welfare Committee hosted the first-ever Wellbeing Day, a two-day celebration dedicated entirely to relaxation and connection. The event provided the perfect opportunity for students to unwind, recharge, and engage in meaningful conversations away from their usual routines. The campus came alive with a vibrant Arena featuring delicious food stalls, music, and interactive games. Beyond the fun, attendees participated in enriching workshops, insightful panel discussions, competitive events, and valuable mentorship sessions. It was a refreshing break that successfully brought the community together to prioritize holistic wellbeing.",
       image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=1200"
     },
     {
@@ -36,7 +36,7 @@ const EventsPage = () => {
     {
       id: 6,
       title: "Lantern Night",
-      description: "A magical evening where the entire student body gathers to light and release eco-friendly lanterns, symbolizing the release of academic stress and the sharing of collective hope. It stands as one of the most visually stunning and emotionally unifying events of the academic year.",
+      description: "The journey at IIT Kharagpur begins with unforgettable memories, and Lantern Night offers the perfect starting point. This spectacular evening brings students together under a breathtaking sky illuminated by thousands of glowing lanterns. It is a vibrant celebration of new beginnings, campus community, and the enduring KGPian spirit. Attendees can look forward to a magical atmosphere filled with live music, radiant lights, and the chance to forge lasting friendships. Join us in creating a beautiful kickoff to your college chapter that you will cherish for years to come.",
       image: "https://images.unsplash.com/photo-1517260739337-6799d239ce83?auto=format&fit=crop&q=80&w=1200"
     }
   ];
