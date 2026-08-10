@@ -20,7 +20,7 @@ const Home = () => {
     { icon: <Heart size={32} />, title: "Support Services", desc: "Counseling and mental health resources", link: "/support" },
     { icon: <Calendar size={32} />, title: "Upcoming Events", desc: "Workshops, seminars, and retreats", link: "/events" },
     { icon: <BookOpen size={32} />, title: "Resources", desc: "Guides, handbooks, and policies", link: "/resources" },
-    { icon: <Users size={32} />, title: "About Us", desc: "Meet our dedicated support team", link: "/about" },
+    { icon: <Users size={32} />, title: "About Us", desc: "Meet our dedicated team", link: "/about" },
   ];
 
   return (
@@ -48,13 +48,13 @@ const Home = () => {
               letterSpacing: '-0.03em'
             }}
           >
-            Welcome to the office of <br/>
+            Welcome to the Office of <br/>
             <span style={{ 
               background: 'linear-gradient(90deg, var(--accent), #2563eb)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent'
             }}>
-              Dean Student Wellbeing
+              Dean, Student Wellbeing
             </span>
           </motion.h1>
           
@@ -169,7 +169,7 @@ const Home = () => {
               </h2>
               <div style={{ width: '60px', height: '5px', background: 'var(--accent)', borderRadius: '3px', marginBottom: '24px' }} />
               <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', marginBottom: '16px' }}>
-                Established with a vision to nurture the holistic development of students, the Office of the Dean of Student Wellbeing has been a cornerstone of campus life at IIT Kharagpur for decades. 
+                Established with a vision to nurture the holistic development of students, the Office of the Dean, Student Wellbeing has been a cornerstone of campus life at IIT Kharagpur for decades. Notably, IIT Kharagpur holds the distinction of creating the first-ever Dean, Student Wellbeing portfolio among all IITs, pioneering a dedicated institutional framework for student care
               </p>
               <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', marginBottom: '24px' }}>
                 We believe that true academic excellence is built on a foundation of mental, physical, and emotional wellbeing. Our dedicated team works tirelessly to create a safe, inclusive, and enriching environment for all.
@@ -187,7 +187,7 @@ const Home = () => {
               <div style={{ 
                 width: '100%', 
                 aspectRatio: '16/10',
-                background: 'url(https://picsum.photos/800/500?random=10) center/cover',
+                background: 'url(/mainbuilding.png) center/cover',
                 borderRadius: '24px',
                 boxShadow: 'var(--card-shadow)'
               }} />
@@ -206,8 +206,6 @@ const Home = () => {
                   border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}
               >
-                <h3 style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '4px' }}>20+</h3>
-                <p style={{ fontWeight: 600, fontSize: '0.9rem' }}>Years of dedicated student support.</p>
               </motion.div>
             </motion.div>
           </div>

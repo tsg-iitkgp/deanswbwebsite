@@ -2,29 +2,126 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const AboutPage = () => {
+  const topMember = {
+    name: "Prof. Arun Chakraborty",
+    role: "Dean, Student Wellbeing",
+    image: "/profarun.webp",
+    description: "Leading the initiative to create a healthier, more supportive campus environment."
+  };
+
   const team = [
     {
-      name: "Prof. Animesh Kumar",
-      role: "Dean of Student Wellbeing",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+      name: "Prof. Indrani Sen",
+      role: "Associate Dean, Student Wellbeing",
+      image: "/profindrani.png",
       description: "Leading the initiative to create a healthier, more supportive campus environment."
     },
     {
-      name: "Dr. Sarah Mitchell",
-      role: "Head Counselor",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+      name: "Prof. Debarghya Chakraborty",
+      role: "Associate Dean, Student Wellbeing",
+      image: "/profdc.png",
       description: "Dedicated to providing professional mental health support to all students."
     },
     {
       name: "Rahul Verma",
-      role: "Student Coordinator",
+      role: "Secretary to Dean, Student Wellbeing",
       image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
       description: "Bridging the gap between the administration and the student body."
     }
   ];
 
   return (
-    <div className="page-wrapper">
+    <div className="page-wrapper" style={{ overflowX: 'hidden' }}>
+      <style>{`
+        .mission-full-width {
+          width: 100vw;
+          position: relative;
+          left: 50%;
+          right: 50%;
+          margin-left: -50vw;
+          margin-right: -50vw;
+          background-color: #ffffff;
+          padding: 60px 0 0 0;
+          text-align: center;
+        }
+
+        .mission-content {
+          max-width: 1250px;
+          margin: 0 auto;
+          padding: 0 32px;
+        }
+
+        .mission-image-wrapper {
+          width: 100%;
+          height: 420px;
+          margin-top: 12px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .top-card-container {
+          max-width: 850px;
+          margin: 0 auto 70px auto;
+          position: relative;
+          padding: 20px 20px 0 0;
+        }
+
+        .top-card-white {
+          position: relative;
+          z-index: 2;
+          background-color: #ffffff;
+          border-radius: 20px;
+          box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+          clip-path: polygon(0 0, 68% 0, 100% 100%, 0 100%);
+          padding: 48px 240px 48px 48px;
+          min-height: 340px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          color: #222;
+        }
+
+        .top-card-img-box {
+          position: absolute;
+          top: -15px;
+          right: 15px;
+          width: 42%;
+          height: calc(100% - 10px);
+          z-index: 3;
+          clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+          box-shadow: -5px 5px 15px rgba(0,0,0,0.15);
+          overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+          .mission-image-wrapper {
+            height: 280px;
+            margin-top: 16px;
+          }
+          .top-card-container {
+            padding: 0;
+            margin-bottom: 50px;
+          }
+          .top-card-white {
+            clip-path: none !important;
+            padding: 24px !important;
+            min-height: auto !important;
+            align-items: center;
+            text-align: center;
+          }
+          .top-card-img-box {
+            position: relative !important;
+            top: 0 !important;
+            right: 0 !important;
+            width: 100% !important;
+            height: 240px !important;
+            clip-path: none !important;
+            border-radius: 16px;
+            margin-bottom: 20px;
+          }
+        }
+      `}</style>
+
       <div className="page-header">
         <motion.h1 
           className="page-title"
@@ -34,39 +131,121 @@ const AboutPage = () => {
         >
           About Us
         </motion.h1>
-        <motion.p 
+        <motion.h3 
           className="page-subtitle"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Meet the dedicated team working behind the scenes to ensure your wellbeing.
-        </motion.p>
+        </motion.h3>
       </div>
 
       {/* Mission Section */}
-      <section className="section" style={{ paddingBottom: '60px' }}>
-        <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
+      <section className="section" style={{ paddingBottom: 0, paddingTop: 0 }}>
+        <div className="mission-full-width">
           <motion.div
+            className="mission-content"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 style={{ fontSize: '2.5rem', marginBottom: '24px', fontWeight: 800 }}>Our Mission</h2>
-            <p style={{ fontSize: '1.2rem', color: 'var(--text-main)', lineHeight: 1.8 }}>
+            <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', marginBottom: '20px', fontWeight: 800 }}>
+              Our Mission
+            </h2>
+            <p style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.45rem)', color: 'var(--text-main)', lineHeight: 1.7, fontWeight: 500 }}>
               At the Office of the Dean of Student Wellbeing, our mission is to foster a campus culture where every student feels supported, valued, and empowered. We are committed to providing comprehensive resources, proactive mental health support, and engaging initiatives that promote holistic personal development.
             </p>
           </motion.div>
+
+          {/* Pulled Up Image - Face Framing Preserved */}
+          <div className="mission-image-wrapper">
+            <img
+              src="/about.jpg"
+              alt="Our Mission"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                objectPosition: 'top 10%',
+                display: 'block'
+              }}
+            />
+            {/* Smooth Top Gradient Blend */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                height: '60px',
+                background: 'linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%)',
+                pointerEvents: 'none'
+              }}
+            />
+          </div>
         </div>
       </section>
 
       {/* Team Section */}
-      <section className="section alt-bg">
+      <section className="section alt-bg" style={{ paddingTop: '60px' }}>
         <div className="container">
-          <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '60px', fontWeight: 800 }}>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', textAlign: 'center', marginBottom: '60px', fontWeight: 800 }}>
             Meet The Team
           </h2>
+
+          {/* Asymmetric Top Featured Card */}
+          <motion.div
+            className="top-card-container"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Layered Background Frame */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: '15px',
+                left: '25px',
+                backgroundColor: '#a3b8c8',
+                borderRadius: '24px',
+                boxShadow: '0 10px 25px rgba(0,0,0,0.12)',
+                zIndex: 1
+              }}
+            />
+
+            {/* Asymmetric Overlapping Image Container */}
+            <div className="top-card-img-box">
+              <img
+                src={topMember.image}
+                alt={topMember.name}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover'
+                }}
+              />
+            </div>
+
+            {/* Main White Card */}
+            <div className="top-card-white">
+              <h3 style={{ fontSize: '1.8rem', fontWeight: 700, margin: '0 0 4px 0', lineHeight: 1.2 }}>
+                {topMember.name}
+              </h3>
+              <p style={{ fontSize: '1.1rem', fontWeight: 600, color: '#555', margin: '0 0 16px 0' }}>
+                {topMember.role}
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: 1.6, margin: 0, maxWidth: '320px' }}>
+                {topMember.description}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Bottom 3 Cards */}
           <div className="grid-container">
             {team.map((member, idx) => (
               <motion.div
