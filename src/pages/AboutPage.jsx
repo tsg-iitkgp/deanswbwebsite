@@ -41,20 +41,21 @@ const AboutPage = () => {
           margin-left: -50vw;
           margin-right: -50vw;
           background-color: #ffffff;
-          padding: 60px 0 0 0;
+          padding: 48px 0 0 0;
           text-align: center;
         }
 
         .mission-content {
-          max-width: 1250px;
+          max-width: 1000px;
           margin: 0 auto;
-          padding: 0 32px;
+          padding: 0 24px;
         }
 
+        /* Section size kept compact at 340px */
         .mission-image-wrapper {
           width: 100%;
-          height: 420px;
-          margin-top: 12px;
+          height: 340px;
+          margin-top: 20px;
           position: relative;
           overflow: hidden;
         }
@@ -95,8 +96,7 @@ const AboutPage = () => {
 
         @media (max-width: 768px) {
           .mission-image-wrapper {
-            height: 280px;
-            margin-top: 16px;
+            height: 240px;
           }
           .top-card-container {
             padding: 0;
@@ -131,14 +131,14 @@ const AboutPage = () => {
         >
           About Us
         </motion.h1>
-        <motion.h3 
+        <motion.p 
           className="page-subtitle"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           Meet the dedicated team working behind the scenes to ensure your wellbeing.
-        </motion.h3>
+        </motion.p>
       </div>
 
       {/* Mission Section */}
@@ -151,15 +151,15 @@ const AboutPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.2rem)', marginBottom: '20px', fontWeight: 800 }}>
+            <h2 style={{ fontSize: '2.5rem', marginBottom: '24px', fontWeight: 800 }}>
               Our Mission
             </h2>
-            <p style={{ fontSize: 'clamp(1.15rem, 2.2vw, 1.45rem)', color: 'var(--text-main)', lineHeight: 1.7, fontWeight: 500 }}>
+            <p style={{ fontSize: '1.2rem', color: 'var(--text-main)', lineHeight: 1.8 }}>
               At the Office of the Dean of Student Wellbeing, our mission is to foster a campus culture where every student feels supported, valued, and empowered. We are committed to providing comprehensive resources, proactive mental health support, and engaging initiatives that promote holistic personal development.
             </p>
           </motion.div>
 
-          {/* Pulled Up Image - Face Framing Preserved */}
+          {/* Compact Wrapper with Image Shifted Down */}
           <div className="mission-image-wrapper">
             <img
               src="/about.jpg"
@@ -168,18 +168,18 @@ const AboutPage = () => {
                 width: '100%',
                 height: '100%',
                 objectFit: 'cover',
-                objectPosition: 'top 10%',
+                objectPosition: 'top 20%',
                 display: 'block'
               }}
             />
-            {/* Smooth Top Gradient Blend */}
+            {/* Top Gradient Blend */}
             <div
               style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 right: 0,
-                height: '60px',
+                height: '45px',
                 background: 'linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 100%)',
                 pointerEvents: 'none'
               }}
@@ -189,9 +189,9 @@ const AboutPage = () => {
       </section>
 
       {/* Team Section */}
-      <section className="section alt-bg" style={{ paddingTop: '60px' }}>
+      <section className="section alt-bg" style={{ paddingTop: '50px' }}>
         <div className="container">
-          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', textAlign: 'center', marginBottom: '60px', fontWeight: 800 }}>
+          <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '60px', fontWeight: 800 }}>
             Meet The Team
           </h2>
 
