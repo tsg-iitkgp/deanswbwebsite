@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Book, FileText, Map, ExternalLink } from 'lucide-react';
 
 const ResourcesPage = () => {
   return (
@@ -24,37 +25,75 @@ const ResourcesPage = () => {
       </div>
       
       <div className="section container">
-        <div className="grid-container">
-          {/* Placeholder for Resources */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '30px', maxWidth: '900px', margin: '0 auto' }}>
+          
           <motion.div 
             className="card"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '30px', padding: '30px' }}
           >
-            <h3>Student Handbook</h3>
-            <p>Complete guide to policies, procedures, and resources at IIT KGP.</p>
-            <button className="btn btn-primary" style={{marginTop: 'auto'}}>Download PDF</button>
+            <div style={{ background: 'var(--bg-mint)', padding: '20px', borderRadius: '20px' }}>
+              <Book size={40} color="var(--accent)" />
+            </div>
+            <div style={{ flex: 1 }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Apna IIT KGP</h3>
+              <p style={{ color: 'var(--text-muted)' }}>The central portal for all student welfare activities, resources, and updates at IIT Kharagpur.</p>
+            </div>
+            <a 
+              href="https://apna.iitkgp.ac.in/web/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn btn-primary" 
+              style={{ flexShrink: 0, alignSelf: 'flex-end', display: 'flex', alignItems: 'center', gap: '8px' }}
+            >
+              <ExternalLink size={18} />
+              Visit Apna IIT KGP website
+            </a>
           </motion.div>
+
+          {/*<motion.div 
+            className="card"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '30px', padding: '30px' }}
+          >
+            <div style={{ background: 'var(--bg-mint)', padding: '20px', borderRadius: '20px' }}>
+              <FileText size={40} color="var(--accent)" />
+            </div>
+            <div style={{ flex: 1 }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Wellness Worksheets</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Self-guided exercises for managing stress and time effectively.</p>
+            </div>
+            <button className="btn btn-primary" style={{ flexShrink: 0 }}>View Worksheets</button>
+          </motion.div>
+
           <motion.div 
             className="card"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '30px', padding: '30px' }}
           >
-            <h3>Wellness Worksheets</h3>
-            <p>Self-guided exercises for managing stress and time effectively.</p>
-            <button className="btn btn-primary" style={{marginTop: 'auto'}}>View Worksheets</button>
-          </motion.div>
-          <motion.div 
-            className="card"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <h3>Campus Map (Safe Zones)</h3>
-            <p>Interactive map highlighting quiet areas and wellness centers.</p>
-            <button className="btn btn-primary" style={{marginTop: 'auto'}}>Open Map</button>
-          </motion.div>
+            <div style={{ background: 'var(--bg-mint)', padding: '20px', borderRadius: '20px' }}>
+              <Map size={40} color="var(--accent)" />
+            </div>
+            <div style={{ flex: 1 }}>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Campus Map (Safe Zones)</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Interactive map highlighting quiet areas and wellness centers.</p>
+            </div>
+            <button className="btn btn-primary" style={{ flexShrink: 0 }}>Open Map</button>
+          </motion.div>*/}
+          
         </div>
       </div>
+      <style>{`
+        @media (max-width: 768px) {
+          .card {
+            flex-direction: column !important;
+            text-align: center;
+          }
+        }
+      `}</style>
     </div>
   );
 };

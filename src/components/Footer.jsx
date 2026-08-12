@@ -24,23 +24,20 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Welfare</h4>
           <ul>
-            <li><a href="#">Academic Portal</a></li>
-            <li><a href="#">Mental Health</a></li>
-            <li><a href="#">Career Services</a></li>
-            <li><a href="#">Language Mentorship</a></li>
-            <li><a href="#">Alumni Mentorship</a></li>
+            <li><a href="https://www.iitkgp.ac.in/student-brotherhood-fund">Student Brotherhood Fund</a></li>
+            <li><a href="https://setu.iitkgp.ac.in/">SETU IIT KGP</a></li>
           </ul>
         </div>
         
         <div className="footer-col">
-          <h4>Connect</h4>
+          {/*<h4>Connect</h4>
           <ul>
             <li><a href="#">Events</a></li>
             <li><a href="#">Operations</a></li>
             <li><a href="#">Technical Team</a></li>
             <li><a href="#">About Us</a></li>
             <li><a href="#">Emergency Contacts</a></li>
-          </ul>
+          </ul>*/}
         </div>
         
         <div className="footer-col">
@@ -48,7 +45,7 @@ const Footer = () => {
           <ul className="contact-info">
             <li><MapPin size={18} style={{flexShrink: 0}} /> <span>Office of the Dean (SWB), IIT Kharagpur, West Bengal 721302</span></li>
             <li><Mail size={18} style={{flexShrink: 0}} /> <span>deanswb@adm.iitkgp.ac.in</span></li>
-            <li><Phone size={18} style={{flexShrink: 0}} /> <span>+91-3222-282033</span></li>
+            <li><Phone size={18} style={{flexShrink: 0}} /> <span>+91-3222-282055</span></li>
           </ul>
         </div>
       </div>
@@ -56,14 +53,14 @@ const Footer = () => {
       {/* Watermark text */}
       <div className="footer-watermark">
         <div className="footer-watermark-track">
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
-          <span>WELFARE</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
+          <span>WELLBEING</span>
         </div>
       </div>
       
