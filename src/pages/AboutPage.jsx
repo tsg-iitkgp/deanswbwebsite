@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Mail, Phone } from 'lucide-react';
 
 const AboutPage = () => {
   const topMember = {
@@ -239,9 +240,17 @@ const AboutPage = () => {
               <p style={{ fontSize: '1.1rem', fontWeight: 600, color: '#555', margin: '0 0 16px 0' }}>
                 {topMember.role}
               </p>
-              <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: 1.6, margin: 0, maxWidth: '320px' }}>
+              <p style={{ fontSize: '0.95rem', color: '#666', lineHeight: 1.6, margin: '0 0 16px 0', maxWidth: '320px' }}>
                 {topMember.description}
               </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', color: '#444', fontSize: '0.9rem', marginTop: 'auto' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Mail size={16} color="var(--accent)" /> <span>deanswb@adm.iitkgp.ac.in</span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <Phone size={16} color="var(--accent)" /> <span>+91-3222-282055</span>
+                </div>
+              </div>
             </div>
           </motion.div>
 

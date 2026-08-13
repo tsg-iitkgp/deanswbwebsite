@@ -84,7 +84,7 @@ const Home = () => {
               Explore Support Services
             </Link>
             <Link to="/events" className="btn btn-secondary">
-              View Upcoming Events
+              View Our Events & Initiatives
             </Link>
           </motion.div>
         </div>
@@ -186,27 +186,22 @@ const Home = () => {
             >
               <div style={{ 
                 width: '100%', 
-                aspectRatio: '16/10',
-                background: 'url(/mainbuilding.png) center/cover',
                 borderRadius: '24px',
-                boxShadow: 'var(--card-shadow)'
-              }} />
-              <motion.div 
-                style={{ y }}
-                className="glass-panel"
-                sx={{
-                  position: 'absolute',
-                  bottom: '-20px',
-                  left: '-20px',
-                  padding: '20px',
-                  borderRadius: '16px',
-                  maxWidth: '220px',
-                  background: 'rgba(255, 255, 255, 0.8)',
-                  backdropFilter: 'blur(12px)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)'
-                }}
-              >
-              </motion.div>
+                boxShadow: 'var(--card-shadow)',
+                overflow: 'hidden',
+                display: 'flex'
+              }}>
+                <img 
+                  src="/iitkgpmainbuilding.jpeg" 
+                  alt="IIT KGP Main Building" 
+                  style={{ 
+                    width: '100%', 
+                    aspectRatio: '16/10', 
+                    objectFit: 'cover', 
+                    display: 'block' 
+                  }} 
+                />
+              </div>
             </motion.div>
           </div>
         </div>

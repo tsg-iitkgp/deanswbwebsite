@@ -45,14 +45,14 @@ const ResourcesPage = () => {
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn btn-primary" 
-              style={{ flexShrink: 0, alignSelf: 'flex-end', display: 'flex', alignItems: 'center', gap: '8px' }}
+              style={{ flexShrink: 0, alignSelf: 'center', display: 'flex', alignItems: 'center', gap: '8px' }}
             >
               <ExternalLink size={18} />
               Visit Apna IIT KGP website
             </a>
           </motion.div>
 
-          {/*<motion.div 
+          <motion.div 
             className="card"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -62,13 +62,13 @@ const ResourcesPage = () => {
               <FileText size={40} color="var(--accent)" />
             </div>
             <div style={{ flex: 1 }}>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Wellness Worksheets</h3>
-              <p style={{ color: 'var(--text-muted)' }}>Self-guided exercises for managing stress and time effectively.</p>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Wellbeing Policy</h3>
+              <p style={{ color: 'var(--text-muted)' }}>Important guidelines and framework for student welfare at IIT KGP.</p>
             </div>
-            <button className="btn btn-primary" style={{ flexShrink: 0 }}>View Worksheets</button>
+            <button className="btn btn-primary" style={{ flexShrink: 0, alignSelf: 'center' }}>View Wellbeing policy</button>
           </motion.div>
 
-          <motion.div 
+          {/*<motion.div 
             className="card"
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
