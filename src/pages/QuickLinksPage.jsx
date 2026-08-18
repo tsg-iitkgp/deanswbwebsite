@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Book, FileText, Map, ExternalLink } from 'lucide-react';
 
-const ResourcesPage = () => {
+const QuickLinksPage = () => {
   return (
     <div className="page-wrapper">
       <div className="page-header">
@@ -12,7 +12,7 @@ const ResourcesPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Resources
+          Quick Links
         </motion.h1>
         <motion.p 
           className="page-subtitle"
@@ -98,4 +98,4 @@ const ResourcesPage = () => {
   );
 };
 
-export default ResourcesPage;
+export default QuickLinksPage;

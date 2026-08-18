@@ -39,11 +39,17 @@ const Navbar = () => {
 
         {/* Center: Links */}
         <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-          <li><NavLink to="/" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Home</NavLink></li>
-          <li><NavLink to="/events" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Events & Initiatives</NavLink></li>
-          <li><NavLink to="/support" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Support Services</NavLink></li>
-          <li><NavLink to="/resources" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>Resources</NavLink></li>
-          <li><NavLink to="/about" className={({isActive}) => `nav-link ${isActive ? 'active' : ''}`} onClick={closeMenu}>About Us</NavLink></li>
+          <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink></li>
+          <li><NavLink to="/events" className="nav-link" onClick={closeMenu}>Events & Initiatives</NavLink></li>
+          <li><NavLink to="/support" className="nav-link" onClick={closeMenu}>Support Services</NavLink></li>
+          <li className="nav-item-dropdown">
+            <span className="nav-link" style={{ cursor: 'pointer' }}>Resources</span>
+            <div className="dropdown-menu">
+              <NavLink to="/emergency-contacts" className="dropdown-item" onClick={closeMenu}>Emergency Contacts</NavLink>
+              <NavLink to="/quick-links" className="dropdown-item" onClick={closeMenu}>Quick Links</NavLink>
+            </div>
+          </li>
+          <li><NavLink to="/about" className="nav-link" onClick={closeMenu}>About Us</NavLink></li>
         </ul>
         
         {/* Right: Actions */}

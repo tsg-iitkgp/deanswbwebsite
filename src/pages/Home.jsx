@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Heart, Calendar, Users, BookOpen } from 'lucide-react';
+import { Heart, Calendar, Users, BookOpen, AlertOctagon } from 'lucide-react';
+import ComplaintModal from '../components/ComplaintModal';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
+  const [isComplaintOpen, setIsComplaintOpen] = useState(false);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   // Random images from the web
@@ -19,7 +21,7 @@ const Home = () => {
   const features = [
     { icon: <Heart size={32} />, title: "Support Services", desc: "Counseling and mental health resources", link: "/support" },
     { icon: <Calendar size={32} />, title: "Upcoming Events", desc: "Workshops, seminars, and retreats", link: "/events" },
-    { icon: <BookOpen size={32} />, title: "Resources", desc: "Guides, handbooks, and policies", link: "/resources" },
+    { icon: <BookOpen size={32} />, title: "Quick Links", desc: "Guides, handbooks, and policies", link: "/quick-links" },
     { icon: <Users size={32} />, title: "About Us", desc: "Meet our dedicated team", link: "/about" },
   ];
 
@@ -207,6 +209,60 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="section" style={{ background: 'var(--bg-alt)', padding: '20px 0 30px 0' }}>
+        <div className="container">
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+            {[
+              {
+                text: "The Office of the Dean, Student Wellbeing was instrumental in helping me navigate a very tough semester. Their counseling services are top-notch and completely confidential.",
+                name: "Ananya Sharma",
+                batch: "B.Tech '24"
+              },
+              {
+                text: "Attending the wellbeing retreats organized by the Dean's office completely changed my perspective on academic stress. I highly recommend every student to participate.",
+                name: "Rohan Patel",
+                batch: "M.Tech '23"
+              },
+              {
+                text: "The financial assistance from the Student Brotherhood Fund was a lifesaver when I faced unexpected medical expenses. I'm deeply grateful to the entire team.",
+                name: "Vikram Singh",
+                batch: "Ph.D Scholar"
+              }
+            ].map((testimonial, idx) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.2 }}
+                style={{
+                  background: '#fff',
+                  padding: '40px 30px',
+                  borderRadius: '20px',
+                  boxShadow: 'var(--card-shadow)',
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'column'
+                }}
+              >
+                <div style={{ color: 'var(--accent)', opacity: 0.2, position: 'absolute', top: '20px', right: '30px', fontSize: '4rem', fontFamily: 'serif', lineHeight: 1 }}>
+                  "
+                </div>
+                <p style={{ fontSize: '1.05rem', color: 'var(--text-main)', fontStyle: 'italic', marginBottom: '24px', position: 'relative', zIndex: 1, lineHeight: 1.7, flexGrow: 1 }}>
+                  "{testimonial.text}"
+                </p>
+                <div style={{ marginTop: 'auto' }}>
+                  <h4 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-header)', margin: 0 }}>{testimonial.name}</h4>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--accent)', margin: 0, fontWeight: 500 }}>{testimonial.batch}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Style for inline hover effects not covered by generic classes */}
       <style>{`
         .card-hover:hover {
@@ -215,6 +271,28 @@ const Home = () => {
           border-color: var(--accent);
         }
       `}</style>
+
+      {/* Floating Complaint Button */}
+      <button 
+        onClick={() => setIsComplaintOpen(true)} 
+        className="btn" 
+        style={{ 
+          position: 'fixed', 
+          bottom: '30px', 
+          right: '30px', 
+          zIndex: 999, 
+          background: '#ef4444', 
+          color: '#fff', 
+          border: 'none', 
+          boxShadow: '0 10px 25px -5px rgba(239,68,68,0.5)',
+          padding: '14px 24px',
+          borderRadius: '99px'
+        }}
+      >
+        <AlertOctagon size={20} /> Register a Complaint
+      </button>
+
+      <ComplaintModal isOpen={isComplaintOpen} onClose={() => setIsComplaintOpen(false)} />
     </div>
   );
 };

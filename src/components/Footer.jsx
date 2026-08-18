@@ -26,7 +26,7 @@ const Footer = () => {
           <h4>Welfare</h4>
           <ul>
             <li><a href="https://www.iitkgp.ac.in/student-brotherhood-fund">Student Brotherhood Fund</a></li>
-            <li><a href="https://setu.iitkgp.ac.in/">SETU IIT KGP</a></li>
+            <li><a href="https://setuatcc.iitkgp.ac.in/">SETU IIT KGP</a></li>
             <li><a href="https://yourdost.com/">YourDOST</a></li>
           </ul>
         </div>
@@ -37,7 +37,7 @@ const Footer = () => {
             <li><Link to="/">Home</Link></li>
             <li><Link to="/events">Events & Inititatives</Link></li>
             <li><Link to="/support">Support Services</Link></li> 
-            <li><Link to="/resources">Resources</Link></li>
+            <li><Link to="/quick-links">Quick Links</Link></li>
             <li><Link to="/about">About Us</Link></li>
           </ul>
         </div>

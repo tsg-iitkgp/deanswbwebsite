@@ -10,26 +10,31 @@ const AboutPage = () => {
     description: "Leading the initiative to create a healthier, more supportive campus environment."
   };
 
-  const team = [
+  const associateDeans = [
     {
       name: "Prof. Indrani Sen",
       role: "Associate Dean, Student Wellbeing",
       image: "/profindrani.png",
-      description: "Leading the initiative to create a healthier, more supportive campus environment."
+      description: "Leading the initiative to create a healthier, more supportive campus environment.",
+      email: "indrani@iitkgp.ac.in",
+      phone: "+91-3222-123456"
     },
     {
       name: "Prof. Debarghya Chakraborty",
       role: "Associate Dean, Student Wellbeing",
       image: "/profdc.png",
-      description: "Dedicated to providing professional mental health support to all students."
-    },
-    {
-      name: "Rahul Verma",
-      role: "Secretary to Dean, Student Wellbeing",
-      image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-      description: "Bridging the gap between the administration and the student body."
+      description: "Dedicated to providing professional mental health support to all students.",
+      email: "debarghya@iitkgp.ac.in",
+      phone: "+91-3222-654321"
     }
   ];
+
+  const secretary = {
+    name: "Rahul Verma",
+    role: "Secretary to Dean, Student Wellbeing",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+    description: "Bridging the gap between the administration and the student body."
+  };
 
   return (
     <div className="page-wrapper" style={{ overflowX: 'hidden' }}>
@@ -254,9 +259,9 @@ const AboutPage = () => {
             </div>
           </motion.div>
 
-          {/* Bottom 3 Cards */}
-          <div className="grid-container">
-            {team.map((member, idx) => (
+          {/* Associate Deans */}
+          <div className="grid-container" style={{ marginBottom: '40px', maxWidth: '1000px', margin: '0 auto 40px auto' }}>
+            {associateDeans.map((member, idx) => (
               <motion.div
                 key={idx}
                 className="card"
@@ -264,7 +269,7 @@ const AboutPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
-                style={{ textAlign: 'center', alignItems: 'center' }}
+                style={{ textAlign: 'center', alignItems: 'center', minHeight: '450px', display: 'flex', flexDirection: 'column' }}
               >
                 <div style={{ 
                   width: '150px', 
@@ -272,15 +277,50 @@ const AboutPage = () => {
                   borderRadius: '50%', 
                   overflow: 'hidden', 
                   marginBottom: '24px',
-                  border: '4px solid var(--bg-mint)'
+                  border: '4px solid var(--bg-mint)',
+                  flexShrink: 0
                 }}>
                   <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{member.name}</h3>
                 <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '16px' }}>{member.role}</h4>
-                <p>{member.description}</p>
+                <p style={{ marginBottom: '20px' }}>{member.description}</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', color: '#444', fontSize: '0.9rem', marginTop: 'auto', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Mail size={16} color="var(--accent)" /> <span>{member.email}</span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <Phone size={16} color="var(--accent)" /> <span>{member.phone}</span>
+                  </div>
+                </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Secretary */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <motion.div
+              className="card"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              style={{ textAlign: 'center', alignItems: 'center', maxWidth: '400px', width: '100%' }}
+            >
+              <div style={{ 
+                width: '150px', 
+                height: '150px', 
+                borderRadius: '50%', 
+                overflow: 'hidden', 
+                marginBottom: '24px',
+                border: '4px solid var(--bg-mint)'
+              }}>
+                <img src={secretary.image} alt={secretary.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{secretary.name}</h3>
+              <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '16px' }}>{secretary.role}</h4>
+              <p>{secretary.description}</p>
+            </motion.div>
           </div>
         </div>
       </section>
