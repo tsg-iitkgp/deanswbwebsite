@@ -25,13 +25,13 @@ const EventsPage = () => {
       id: 4,
       title: "Induction Programme",
       description: "An interactive orientation designed for incoming freshers to smoothly transition into campus life. This programme familiarizes new students with the vast array of support services, mentorship networks, and wellness facilities available to them from day one.",
-      image: "/about.jpg"
+      image: "/induction-programme.jpeg"
     },
     {
       id: 5,
       title: "Wellbeing Courses",
       description: "As a core academic initiative, IIT Kharagpur introduced the Life Skills and Joy and Success courses to actively promote student wellbeing and emotional resilience. The foundational Life Skills program equips students with emotional intelligence to navigate campus life, while the Joy and Success elective guides them in balancing ambition with personal happiness. Ultimately, this initiative empowers the student community to manage stress, build empathy, and find true fulfillment alongside their academic achievements.",
-      image: "/images/campus_life_1_1786179125348.jpg"
+      image: "/wellbeing-courses.avif"
     },
     {
       id: 6,
@@ -44,13 +44,12 @@ const EventsPage = () => {
   return (
     <div className="page-wrapper" style={{ background: 'var(--bg-main)' }}>
       {/* Page Header */}
-      <div className="page-header" style={{ background: 'var(--bg-alt)', padding: '100px 0 80px 0' }}>
+      <div className="page-header events-page-header">
         <motion.h1 
           className="page-title"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          style={{ fontSize: '3.5rem' }}
         >
           Our Events & Initiatives
         </motion.h1>
@@ -70,37 +69,23 @@ const EventsPage = () => {
           const isEven = index % 2 !== 0;
           
           return (
-            <section 
-              key={event.id} 
-              style={{ 
-                padding: '80px 0', 
-                background: isEven ? 'var(--bg-alt)' : 'var(--bg-main)' 
-              }}
+            <section
+              key={event.id}
+              className="event-section"
+              style={{ background: isEven ? 'var(--bg-alt)' : 'var(--bg-main)' }}
             >
               <div className="container" style={{ maxWidth: '1200px' }}>
-                <div style={{
-                  display: 'flex',
-                  flexDirection: isEven ? 'row-reverse' : 'row',
-                  alignItems: 'center',
-                  gap: '60px',
-                  flexWrap: 'wrap'
-                }}>
+                <div className={`event-row ${isEven ? 'event-row-reverse' : ''}`}>
                   
                   {/* Image Container */}
                   <motion.div 
-                    style={{ flex: '0 0 420px', position: 'relative' }}
+                    className="event-image-container"
                     initial={{ opacity: 0, x: isEven ? 50 : -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                   >
-                    <div style={{
-                      position: 'relative',
-                      borderRadius: '24px',
-                      overflow: 'hidden',
-                      boxShadow: '0 25px 50px -12px rgba(0,0,0,0.15)',
-                      aspectRatio: '4/3'
-                    }}>
+                    <div className="event-image-frame">
                       <img 
                         src={event.image} 
                         alt={event.title} 
@@ -118,20 +103,13 @@ const EventsPage = () => {
 
                   {/* Text Container */}
                   <motion.div 
-                    style={{ flex: '1 1 500px' }}
+                    className="event-copy"
                     initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
                   >
-                    <h2 style={{ 
-                      fontSize: 'clamp(2rem, 4vw, 3rem)', 
-                      fontWeight: 800, 
-                      color: 'var(--text-header)',
-                      marginBottom: '24px',
-                      lineHeight: 1.1,
-                      letterSpacing: '-0.03em'
-                    }}>
+                    <h2 className="event-title">
                       {event.title}
                     </h2>
                     
@@ -143,11 +121,7 @@ const EventsPage = () => {
                       marginBottom: '32px' 
                     }} />
                     
-                    <p style={{ 
-                      fontSize: '1.15rem', 
-                      color: 'var(--text-main)', 
-                      lineHeight: 1.8 
-                    }}>
+                    <p className="event-description">
                       {event.description}
                     </p>
                   </motion.div>

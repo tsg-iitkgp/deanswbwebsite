@@ -46,7 +46,7 @@ const Navbar = () => {
             <span className="nav-link" style={{ cursor: 'pointer' }}>Resources</span>
             <div className="dropdown-menu">
               <NavLink to="/emergency-contacts" className="dropdown-item" onClick={closeMenu}>Emergency Contacts</NavLink>
-              <NavLink to="/quick-links" className="dropdown-item" onClick={closeMenu}>Quick Links</NavLink>
+              <NavLink to="/quick-links" className="dropdown-item" onClick={closeMenu}>Other Links</NavLink>
             </div>
           </li>
           <li><NavLink to="/about" className="nav-link" onClick={closeMenu}>About Us</NavLink></li>

@@ -12,7 +12,7 @@ const QuickLinksPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Quick Links
+          Other Links
         </motion.h1>
         <motion.p 
           className="page-subtitle"

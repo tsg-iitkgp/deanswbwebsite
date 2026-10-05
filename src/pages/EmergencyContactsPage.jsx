@@ -48,54 +48,36 @@ const EmergencyContactsPage = () => {
         </p>
       </div>
       
-      <div className="section container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '20px', maxWidth: '800px', margin: '0 auto' }}>
+      <div className="section container emergency-section">
+        <div className="emergency-contacts-list">
           
           {contacts.map((contact, index) => (
             <div 
               key={index}
-              className="card"
-              style={{ 
-                display: 'flex', 
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '24px 30px',
-                background: '#fff',
-                borderColor: 'var(--border-color)',
-                gap: '20px',
-                flexWrap: 'wrap'
-              }}
+              className="card emergency-contact-card"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flex: '1 1 300px' }}>
-                <div style={{ background: 'var(--bg-mint)', padding: '16px', borderRadius: '16px', flexShrink: 0 }}>
+              <div className="emergency-contact-details">
+                <div className="emergency-contact-icon">
                   {contact.icon}
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.3rem', marginBottom: '4px', color: 'var(--text-header)' }}>
+                  <h3 className="emergency-contact-title">
                     {contact.title}
                   </h3>
                   {contact.subtitle && (
-                    <p style={{ fontSize: '0.95rem', color: 'var(--text-muted)', margin: 0 }}>
+                    <p className="emergency-contact-subtitle">
                       {contact.subtitle}
                     </p>
                   )}
                 </div>
               </div>
               
-              <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', flex: '1 1 auto', justifyContent: 'flex-end' }}>
+              <div className="emergency-contact-numbers">
                 {contact.numbers.map((num, i) => (
                   <a 
                     key={i}
                     href={`tel:${num}`} 
-                    className="btn btn-secondary"
-                    style={{ 
-                      padding: '8px 16px', 
-                      fontSize: '1rem',
-                      fontWeight: 600,
-                      borderRadius: '8px',
-                      textDecoration: 'none'
-                    }}
+                    className="btn btn-secondary emergency-phone-link"
                   >
                     {num}
                   </a>
@@ -106,19 +88,6 @@ const EmergencyContactsPage = () => {
           
         </div>
       </div>
-      <style>{`
-        @media (max-width: 768px) {
-          .card {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-          }
-          .card > div:last-child {
-            justify-content: flex-start !important;
-            width: 100%;
-            margin-top: 10px;
-          }
-        }
-      `}</style>
     </div>
   );
 };

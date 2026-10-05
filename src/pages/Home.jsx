@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Heart, Calendar, Users, BookOpen, AlertOctagon } from 'lucide-react';
-import ComplaintModal from '../components/ComplaintModal';
+import { Heart, Calendar, Users, BookOpen } from 'lucide-react';
 
 const Home = () => {
   const { scrollYProgress } = useScroll();
-  const [isComplaintOpen, setIsComplaintOpen] = useState(false);
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
-  // Random images from the web
   const galleryImages = [
-    "https://picsum.photos/600/400?random=1",
-    "https://picsum.photos/600/400?random=2",
-    "https://picsum.photos/600/400?random=3",
-    "https://picsum.photos/600/400?random=4",
-    "https://picsum.photos/600/400?random=5",
+    { src: "/gallery-mindful-relaxation.jpeg", alt: "Students and faculty in the Mindful Relaxation Zone" },
+    { src: "/gallery-student-session.jpeg", alt: "Students participating in a wellbeing session" },
+    { src: "/gallery-wellbeing-panel.jpeg", alt: "Speakers at a campus wellbeing panel discussion" },
+    { src: "/gallery-yoga-session.jpeg", alt: "Students participating in an outdoor yoga session" },
+    { src: "/gallery-art-therapy.jpeg", alt: "Students displaying artwork during an art therapy session" },
   ];
 
   const features = [
@@ -135,7 +132,7 @@ const Home = () => {
             transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
             style={{ display: 'flex', gap: '30px', paddingRight: '30px' }}
           >
-            {[...galleryImages, ...galleryImages].map((img, i) => (
+            {[...galleryImages, ...galleryImages].map((image, i) => (
               <div key={i} style={{ 
                 width: '450px', 
                 height: '300px', 
@@ -144,7 +141,7 @@ const Home = () => {
                 flexShrink: 0,
                 boxShadow: 'var(--card-shadow)'
               }}>
-                <img src={img} alt="Campus Life" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src={image.src} alt={image.alt} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             ))}
           </motion.div>
@@ -272,27 +269,6 @@ const Home = () => {
         }
       `}</style>
 
-      {/* Floating Complaint Button */}
-      <button 
-        onClick={() => setIsComplaintOpen(true)} 
-        className="btn" 
-        style={{ 
-          position: 'fixed', 
-          bottom: '30px', 
-          right: '30px', 
-          zIndex: 999, 
-          background: '#ef4444', 
-          color: '#fff', 
-          border: 'none', 
-          boxShadow: '0 10px 25px -5px rgba(239,68,68,0.5)',
-          padding: '14px 24px',
-          borderRadius: '99px'
-        }}
-      >
-        <AlertOctagon size={20} /> Register a Complaint
-      </button>
-
-      <ComplaintModal isOpen={isComplaintOpen} onClose={() => setIsComplaintOpen(false)} />
     </div>
   );
 };
