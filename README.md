@@ -2,7 +2,15 @@
 
 ## Complaint email configuration
 
-Complaint submissions are sent through the Cloudflare Pages Function at `functions/api/complaints.js`. In the Cloudflare dashboard, open the Pages project and add these variables under **Settings > Variables and Secrets** for both Production and Preview:
+Complaint submissions are handled by the Cloudflare Worker in `worker/index.js`, which routes `/api/complaints` to the SMTP handler in `functions/api/complaints.js`.
+
+Deploy the full Worker and its static assets with:
+
+```bash
+npm run deploy
+```
+
+After the first Worker-backed deployment, open the Worker in the Cloudflare dashboard and add these values under **Settings > Variables and Secrets**:
 
 - `SMTP_USER`: Gmail address used to send complaints
 - `SMTP_PASS`: Google app password for the sending account
@@ -10,7 +18,7 @@ Complaint submissions are sent through the Cloudflare Pages Function at `functio
 
 Use `.env.example` as the local configuration template. Never commit a real SMTP password.
 
-Set the Pages Functions compatibility date to `2026-10-05` or newer so Cloudflare's Node.js networking compatibility is enabled. Deploy through a connected Git repository or Wrangler; Cloudflare Pages direct dashboard uploads do not include Functions.
+The Worker configuration in `wrangler.jsonc` sets the required compatibility date, serves the Vite build from `dist`, preserves SPA routing, and sends only `/api/*` requests through Worker code. Uploading only the `dist` directory creates a static-only Worker and will not support secrets or complaint submission.
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
