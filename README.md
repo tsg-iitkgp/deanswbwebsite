@@ -1,5 +1,17 @@
 # React + Vite
 
+## Complaint email configuration
+
+Complaint submissions are sent through the Cloudflare Pages Function at `functions/api/complaints.js`. In the Cloudflare dashboard, open the Pages project and add these variables under **Settings > Variables and Secrets** for both Production and Preview:
+
+- `SMTP_USER`: Gmail address used to send complaints
+- `SMTP_PASS`: Google app password for the sending account
+- `COMPLAINT_EMAIL_TO`: Address that receives complaint submissions
+
+Use `.env.example` as the local configuration template. Never commit a real SMTP password.
+
+Set the Pages Functions compatibility date to `2026-10-05` or newer so Cloudflare's Node.js networking compatibility is enabled. Deploy through a connected Git repository or Wrangler; Cloudflare Pages direct dashboard uploads do not include Functions.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { X, CheckCircle, AlertCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ComplaintModal = ({ isOpen, onClose }) => {
@@ -17,27 +16,26 @@ const ComplaintModal = ({ isOpen, onClose }) => {
 
     const form = e.target;
     const formData = new FormData(form);
-    // Convert formData to a plain object for our JSON API
     const payload = Object.fromEntries(formData.entries());
 
     try {
-      const templateParams = {
-        name: payload.name,
-        rollNumber: payload.rollNumber,
-        complaint: payload.description
-      };
+      const response = await fetch('/api/complaints', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
 
-      await emailjs.send(
-        "service_m9cndz3",
-        "template_ai6ibhr",
-        templateParams,
-        "EcgKRlUdYA_kv3rkk"
-      );
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.error || 'Unable to submit the complaint.');
+      }
 
       setIsSuccess(true);
     } catch (err) {
-      console.error("EmailJS Error:", err);
-      setError("An error occurred while submitting your complaint. Please try again.");
+      console.error('Complaint submission error:', err);
+      setError(err.message || 'An error occurred while submitting your complaint. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -97,19 +95,24 @@ const ComplaintModal = ({ isOpen, onClose }) => {
               )}
 
               <form onSubmit={handleSubmit}>
+                <div className="complaint-honeypot" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                </div>
+
                 <div className="form-group">
                   <label htmlFor="name" className="form-label">Full Name</label>
-                  <input type="text" id="name" name="name" className="form-input" required placeholder="Enter your full name" />
+                  <input type="text" id="name" name="name" className="form-input" maxLength={120} required placeholder="Enter your full name" />
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="rollNumber" className="form-label">Roll Number</label>
-                  <input type="text" id="rollNumber" name="rollNumber" className="form-input" required placeholder="Enter your roll number" />
+                  <input type="text" id="rollNumber" name="rollNumber" className="form-input" maxLength={50} required placeholder="Enter your roll number" />
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="description" className="form-label">Complaint Description</label>
-                  <textarea id="description" name="description" className="form-textarea" required placeholder="Describe your issue in detail..."></textarea>
+                  <textarea id="description" name="description" className="form-textarea" maxLength={5000} required placeholder="Describe your issue in detail..."></textarea>
                 </div>
 
                 <button type="submit" className="btn btn-primary form-submit-btn" disabled={isSubmitting}>
