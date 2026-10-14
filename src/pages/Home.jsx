@@ -1,12 +1,9 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Heart, Calendar, Users, BookOpen } from 'lucide-react';
 
 const Home = () => {
-  const { scrollYProgress } = useScroll();
-  const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
-
   const galleryImages = [
     { src: "/gallery-mindful-relaxation.jpeg", alt: "Students and faculty in the Mindful Relaxation Zone" },
     { src: "/gallery-student-session.jpeg", alt: "Students participating in a wellbeing session" },

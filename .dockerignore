@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.env.*
+!.env.example
+node_modules
+dist
+dist-ssr
+.wrangler
+.codex
+.agents
+.aws
+.vscode
+.DS_Store
+*.log
+README.md

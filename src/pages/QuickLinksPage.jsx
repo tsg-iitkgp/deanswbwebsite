@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Book, FileText, Map, ExternalLink } from 'lucide-react';
+import { Book, FileText, ExternalLink } from 'lucide-react';
 
 const QuickLinksPage = () => {
   return (

@@ -1,5 +1,4 @@
 import { MapPin, Mail, Phone } from 'lucide-react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -41,17 +40,6 @@ const Footer = () => {
             <li><Link to="/about">About Us</Link></li>
           </ul>
         </div>
-        
-        {/*<div className="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Operations</a></li>
-            <li><a href="#">Technical Team</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Emergency Contacts</a></li>
-          </ul>
-        </div>*/}
         
         <div className="footer-col">
           <h4>Institute</h4>
