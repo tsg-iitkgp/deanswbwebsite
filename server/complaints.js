@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 
 const MAX_REQUEST_BYTES = 32768;
 const normalizeField = (value) => typeof value === 'string' ? value.trim() : '';
-const isEmailAddress = (value) => /^[^\s<>@]+@[^\s<>@]+\.[^\s<>@]+$/.test(value);
+const isEmailAddress = (value) => /^[^\s<>@,;]+@[^\s<>@,;]+\.[^\s<>@,;]+$/.test(value);
 const escapeHtml = (value) => value
   .replaceAll('&', '&amp;')
   .replaceAll('<', '&lt;')
@@ -76,8 +76,8 @@ export const createComplaintHandler = (env, createTransport = nodemailer.createT
   const user = normalizeField(env.SMTP_USER);
   const pass = typeof env.SMTP_PASS === 'string' ? env.SMTP_PASS : '';
   const from = normalizeField(env.SMTP_FROM) || user;
-  const to = normalizeField(env.COMPLAINT_EMAIL_TO);
-  if (!host || !user || !pass || !isEmailAddress(from) || !isEmailAddress(to)
+  const to = [...new Set(normalizeField(env.COMPLAINT_EMAIL_TO).split(',').map(normalizeField))];
+  if (!host || !user || !pass || !isEmailAddress(from) || !to.every(isEmailAddress)
     || !Number.isInteger(port) || port < 1 || port > 65535
     || !['true', 'false'].includes(env.SMTP_SECURE || 'true')) {
     return sendJson(response, 503, { error: 'Complaint email service is not configured. Please contact the administrator.' });

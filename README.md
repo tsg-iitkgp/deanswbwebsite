@@ -80,9 +80,17 @@ Keep one local configuration file named `.env`, created from `.env.example`. Bot
 | `SMTP_USER` | SMTP login username. |
 | `SMTP_PASS` | SMTP password or Gmail app password. |
 | `SMTP_FROM` | Sender email address; leave blank to use `SMTP_USER`. Must be permitted by the mail server. |
-| `COMPLAINT_EMAIL_TO` | Administration address that receives complaints. |
+| `COMPLAINT_EMAIL_TO` | One administration email address or a comma-separated list of recipients. |
 
 For Gmail, use an app password associated with the sending account. For the institute, replace these values with the official SMTP settings supplied by its IT team. Quote environment values containing spaces, `#`, or `$` as appropriate. Do not use `VITE_` prefixes for SMTP secrets, since those variables may be included in browser code.
+
+For multiple complaint recipients, set this value in `.env`:
+
+```dotenv
+COMPLAINT_EMAIL_TO=first@example.com,second@example.com
+```
+
+Whitespace around addresses is ignored and duplicate addresses are removed. Every entry must be a valid email address; use commas as separators and avoid empty entries. All recipients appear in the email's To field. Restart the local server after changing `.env`, or run `docker compose up --build -d --force-recreate` to rebuild the container and reload the configuration.
 
 The website can start without mail credentials, but complaint delivery will return a configuration error until they are supplied. The Docker image itself contains no SMTP credentials.
 

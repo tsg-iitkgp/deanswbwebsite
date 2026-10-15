@@ -96,7 +96,7 @@ test('sends Unicode complaints only to the configured recipient with escaped HTM
   assert.deepEqual(await response.json(), { success: true });
   assert.equal(sentMessages.length, 1);
   const message = sentMessages[0];
-  assert.equal(message.to, env.COMPLAINT_EMAIL_TO);
+  assert.deepEqual(message.to, [env.COMPLAINT_EMAIL_TO]);
   assert.equal(message.from.address, env.SMTP_FROM);
   assert.ok(message.text.includes(description.trim()));
   assert.ok(message.html.includes('&lt;script&gt;'));
@@ -117,5 +117,46 @@ test('SMTP rejection produces a safe error and never reports success', async () 
     assert.equal(sentMessages.length, 1);
   } finally {
     simulateFailure = false;
+  }
+});
+
+test('sends complaints to every configured recipient, trimming whitespace and removing duplicates', async () => {
+  const originalRecipient = env.COMPLAINT_EMAIL_TO;
+  const previousCount = sentMessages.length;
+  env.COMPLAINT_EMAIL_TO = ' first@example.com, second@example.com ,first@example.com ';
+  try {
+    const response = await submit({
+      name: 'Test', rollNumber: 'TEST', description: 'Multiple recipients', to: 'attacker@example.com'
+    });
+    assert.equal(response.status, 200);
+    assert.equal(sentMessages.length, previousCount + 1);
+    assert.deepEqual(sentMessages.at(-1).to, ['first@example.com', 'second@example.com']);
+  } finally {
+    env.COMPLAINT_EMAIL_TO = originalRecipient;
+  }
+});
+
+test('rejects empty or invalid recipient entries before opening an SMTP connection', async () => {
+  const originalRecipient = env.COMPLAINT_EMAIL_TO;
+  const previousCount = sentMessages.length;
+  const previousTransports = transportOptions.length;
+  try {
+    for (const recipients of [
+      '',
+      'first@example.com,not-an-email',
+      'first@example.com,',
+      ',first@example.com',
+      'first@example.com,,second@example.com',
+      'first@example.com;second@example.com',
+      'first@example.com,second@example.com\r\nBcc: third@example.com'
+    ]) {
+      env.COMPLAINT_EMAIL_TO = recipients;
+      const response = await submit({ name: 'Test', rollNumber: 'TEST', description: 'Validation check' });
+      assert.equal(response.status, 503);
+    }
+    assert.equal(sentMessages.length, previousCount);
+    assert.equal(transportOptions.length, previousTransports);
+  } finally {
+    env.COMPLAINT_EMAIL_TO = originalRecipient;
   }
 });
