@@ -1,16 +1,19 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
 
   const toggleMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    setMobileMenuOpen((isOpen) => !isOpen);
+    setResourcesOpen(false);
   };
 
   const closeMenu = () => {
     setMobileMenuOpen(false);
+    setResourcesOpen(false);
   };
 
   return (
@@ -38,13 +41,21 @@ const Navbar = () => {
         </div>
 
         {/* Center: Links */}
-        <ul className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
+        <ul id="main-navigation" className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
           <li><NavLink to="/" className="nav-link" onClick={closeMenu}>Home</NavLink></li>
           <li><NavLink to="/events" className="nav-link" onClick={closeMenu}>Events & Initiatives</NavLink></li>
           <li><NavLink to="/support" className="nav-link" onClick={closeMenu}>Support Services</NavLink></li>
-          <li className="nav-item-dropdown">
-            <span className="nav-link" style={{ cursor: 'pointer' }}>Resources</span>
-            <div className="dropdown-menu">
+          <li className={`nav-item-dropdown ${resourcesOpen ? 'resources-open' : ''}`}>
+            <button
+              type="button"
+              className="nav-link nav-dropdown-toggle"
+              aria-expanded={resourcesOpen}
+              aria-controls="resources-navigation"
+              onClick={() => setResourcesOpen((isOpen) => !isOpen)}
+            >
+              Resources <ChevronDown size={16} aria-hidden="true" />
+            </button>
+            <div id="resources-navigation" className="dropdown-menu">
               <NavLink to="/emergency-contacts" className="dropdown-item" onClick={closeMenu}>Emergency Contacts</NavLink>
               <NavLink to="/quick-links" className="dropdown-item" onClick={closeMenu}>Other Links</NavLink>
             </div>
@@ -54,7 +65,14 @@ const Navbar = () => {
         
         {/* Right: Actions */}
         <div className="nav-actions">
-          <button className="hamburger" onClick={toggleMenu} aria-label="Toggle menu">
+          <button
+            type="button"
+            className="hamburger"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="main-navigation"
+          >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>

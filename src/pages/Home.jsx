@@ -89,7 +89,7 @@ const Home = () => {
       {/* Quick Links / Features Section to fill space */}
       <section className="section" style={{ padding: '40px 0', marginTop: '-30px', position: 'relative', zIndex: 10 }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '20px' }}>
             {features.map((item, idx) => (
               <motion.div 
                 key={idx}
@@ -150,7 +150,7 @@ const Home = () => {
         <div className="container">
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
             gap: '50px',
             alignItems: 'center' 
           }}>
@@ -207,7 +207,7 @@ const Home = () => {
       <section className="section" style={{ background: 'var(--bg-alt)', padding: '20px 0 30px 0' }}>
         <div className="container">
           
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '30px' }}>
             {[
               {
                 text: "The Office of the Dean, Student Wellbeing was instrumental in helping me navigate a very tough semester. Their counseling services are top-notch and completely confidential.",
