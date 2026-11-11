@@ -12,28 +12,38 @@ const AboutPage = () => {
 
   const associateDeans = [
     {
-      name: "Prof. Indrani Sen",
+      name: "Prof. Sunita Mishra",
       role: "Associate Dean, Student Wellbeing",
-      image: "/profindrani.png",
-      description: "Leading the initiative to create a healthier, more supportive campus environment.",
-      email: "indrani@iitkgp.ac.in",
-      phone: "+91-3222-123456"
+      image: "/sunitamishra.png",
+      description: "Helping students find the guidance and support they need throughout their campus journey.",
+      email: "smishra@mining.iitkgp.ac.in",
+      phone: "+91-3222-284824"
     },
     {
       name: "Prof. Debarghya Chakraborty",
       role: "Associate Dean, Student Wellbeing",
       image: "/profdc.png",
       description: "Dedicated to providing professional mental health support to all students.",
-      email: "debarghya@iitkgp.ac.in",
-      phone: "+91-3222-654321"
+      email: "debarghya@civil.iitkgp.ac.in",
+      phone: "+91-3222-282474"
+    },
+    {
+      name: "Prof. Chandrani Singh",
+      role: "Associate Dean, Student Wellbeing",
+      image: "/chandranisingh.png",
+      description: "Committed to supporting student wellbeing and creating a welcoming campus community.",
+      email: "chandrani@gg.iitkgp.ac.in",
+      phone: "+91-3222-283378"
     }
   ];
 
   const secretary = {
-    name: "Rahul Verma",
+    name: "Shubhadip De",
     role: "Secretary to Dean, Student Wellbeing",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-    description: "Bridging the gap between the administration and the student body."
+    image: "/nopfp.png",
+    description: "Bridging the gap between the administration and the student body.",
+    email: "de.shubhadip@adm.iitkgp.ac.in",
+    phone: "+91-3222-282042"
   };
 
   return (
@@ -260,66 +270,58 @@ const AboutPage = () => {
           </motion.div>
 
           {/* Associate Deans */}
-          <div className="grid-container" style={{ marginBottom: '40px', maxWidth: '1000px', margin: '0 auto 40px auto' }}>
+          <div className="associate-deans-grid">
             {associateDeans.map((member, idx) => (
               <motion.div
-                key={idx}
-                className="card"
+                key={member.name}
+                className="card associate-dean-card"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.2 }}
-                style={{ textAlign: 'center', alignItems: 'center', minHeight: '450px', display: 'flex', flexDirection: 'column' }}
               >
-                <div style={{ 
-                  width: '150px', 
-                  height: '150px', 
-                  borderRadius: '50%', 
-                  overflow: 'hidden', 
-                  marginBottom: '24px',
-                  border: '4px solid var(--bg-mint)',
-                  flexShrink: 0
-                }}>
-                  <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div className="associate-dean-avatar">
+                  {member.image ? (
+                    <img src={member.image} alt={member.name} />
+                  ) : (
+                    <>
+                      <span className="associate-dean-initials" aria-hidden="true">{member.initials}</span>
+                      <span>Photo pending</span>
+                    </>
+                  )}
                 </div>
-                <h3 style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{member.name}</h3>
-                <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '16px' }}>{member.role}</h4>
-                <p style={{ marginBottom: '20px' }}>{member.description}</p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', color: '#444', fontSize: '0.9rem', marginTop: 'auto', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Mail size={16} color="var(--accent)" /> <span>{member.email}</span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <Phone size={16} color="var(--accent)" /> <span>{member.phone}</span>
-                  </div>
+                <h3 className="associate-dean-name">{member.name}</h3>
+                <h4 className="associate-dean-role">{member.role}</h4>
+                {member.description && <p className="associate-dean-description">{member.description}</p>}
+                <div className="associate-dean-contacts">
+                  {member.email && (
+                    <div><Mail size={16} color="var(--accent)" /> <span>{member.email}</span></div>
+                  )}
+                  {member.phone && (
+                    <div><Phone size={16} color="var(--accent)" /> <span>{member.phone}</span></div>
+                  )}
+                  {!member.email && !member.phone && <p className="associate-dean-pending">Contact details pending</p>}
                 </div>
               </motion.div>
             ))}
-          </div>
-
           {/* Secretary */}
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <motion.div
-              className="card"
+              className="card associate-dean-card secretary-profile-card"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              style={{ textAlign: 'center', alignItems: 'center', maxWidth: '400px', width: '100%' }}
             >
-              <div style={{ 
-                width: '150px', 
-                height: '150px', 
-                borderRadius: '50%', 
-                overflow: 'hidden', 
-                marginBottom: '24px',
-                border: '4px solid var(--bg-mint)'
-              }}>
-                <img src={secretary.image} alt={secretary.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <div className="associate-dean-avatar">
+                <img src={secretary.image} alt={secretary.name} />
               </div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '8px' }}>{secretary.name}</h3>
-              <h4 style={{ color: 'var(--accent)', fontSize: '1.1rem', marginBottom: '16px' }}>{secretary.role}</h4>
-              <p>{secretary.description}</p>
+              <h3 className="associate-dean-name">{secretary.name}</h3>
+              <h4 className="associate-dean-role">{secretary.role}</h4>
+              <p className="associate-dean-description">{secretary.description}</p>
+              <div className="associate-dean-contacts">
+                <div><Mail size={16} color="var(--accent)" /> <span>{secretary.email}</span></div>
+                <div><Phone size={16} color="var(--accent)" /> <span>{secretary.phone}</span></div>
+              </div>
             </motion.div>
           </div>
         </div>
